@@ -1,2 +1,33 @@
-# Custom_AXI_Lite_IP
-This repository will cover the Overview, Design Summary, Verification and Results, Known Issues or Limitations, and References using the Zybo Z7-10 for the ECE 520 Lab Course.
+# Overview
+Building on the 16-bit sc_fifo module form Lab 3, this lab packages it as a custom AXI-4Lite peripheral (sc_fifo_axi_aaj) and integrates it into a Zynq SoC system to veify operation via C software running on the ARM PS.
+
+# Design Summary
+### System Architecture
+The design integrates a custom AXI4-Lite peripheral into a Zynq PS+PL system.
+The ARM Cortex-A9 processor communicates with the FIFO IP over the AXI4-Lite 
+bus through the AXI Interconnect block.
+
+### Custom IP: sc_fifo_axi_aaj
+The IP wraps the Lab 3 sc_fifo module with an AXI4-Lite slave interface. 
+The register map exposes 9 registers at base address 0x43C10000:
+
+| Offset | Register      | Access |
+|--------|---------------|--------|
+| 0x00   | FPGA_REV      | RO     |
+| 0x04   | FIFO_RST      | WO     |
+| 0x08   | WR_DATA       | WO     |
+| 0x0C   | RD_REQ        | WO     |
+| 0x10   | RD_DATA       | RO     |
+| 0x14   | STATUS        | RO     |
+| 0x18   | DATA_COUNT    | RO     |
+| 0x1C   | CONFIG        | RO     |
+| 0x20   | THRESHOLD     | RO     |
+
+![Block Design](BlockDesignLab4.png)
+
+# Verificaiton and Results
+![Result Viits Terminal](ResultVitis.png)
+
+# Known Issues or Limitations
+
+# References
