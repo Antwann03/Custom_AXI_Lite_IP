@@ -29,5 +29,9 @@ The register map exposes 9 registers at base address 0x43C10000:
 ![Result Viits Terminal](ResultVitis.png)
 
 # Known Issues or Limitations
+During Vitis BSP configuration, only the multiplier_16_bit driver was set to 
+"none" while sc_fifo_axi_aaj was left at default, causing multiple build errors. 
+Setting both IP drivers to "none" resolved the issue.
 
 # References
+ece520L_fall26_lab4_custom_axi_lite_ip.pdf
